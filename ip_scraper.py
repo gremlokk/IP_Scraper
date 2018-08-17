@@ -14,6 +14,7 @@ try:
     file = str(input("Enter a file path: "))
     min_hits = int(input("Enter a number for the minimum amount of hits to track for an IP address: "))
     col_name = 'IPaddress'
+    
     print("Program Started.\n")
 
     with open(file) as csvfile:
