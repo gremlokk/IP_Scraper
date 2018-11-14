@@ -13,13 +13,14 @@ from collections import Counter
 try:
     file = str(input("Enter a file path: "))
     min_hits = int(input("Enter a number for the minimum amount of hits to track for an IP address: "))
-    col_name = 'IPaddress'
+    col_name = str(input("Enter the Column Name To Check IPs: "))
+    #col_name = 'IPaddress' 
     
     print("Program Started.\n")
 
     with open(file) as csvfile:
-        readCSV = csv.DictReader(csvfile)
-        list_of_ips = [row[col_name] for row in readCSV]
+        readCSV = csv.DictReader(csvfile)#read file
+        list_of_ips = [row[col_name] for row in readCSV]#return list of IPs
 
     for key,value in Counter(list_of_ips).items():
         if int(value) > min_hits:
@@ -28,5 +29,5 @@ try:
     print("\nProgram Ended.")
 
 except:
-    print ("Unexpected error:", sys.exc_info()[0])
+    print ("Unexpected error:", sys.exc_info()[0])#for debugging purposes
     raise
